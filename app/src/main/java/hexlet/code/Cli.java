@@ -4,12 +4,15 @@ import java.util.Scanner;
 
 public class Cli {
 
-    public static void userGreeting() {
+    public static String userGreeting() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Welcome to the Brain Games!");
+        System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        System.out.println("Hello, " + scanner.next() + "!");
+        String userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
+
+        return userName;
     }
 
 }
