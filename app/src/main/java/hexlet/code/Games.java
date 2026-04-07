@@ -6,8 +6,8 @@ import java.util.random.RandomGenerator;
 
 public class Games {
 
-    private static final Scanner scanner = new Scanner(System.in);
-    private static final RandomGenerator random = new Random();
+    private static final Scanner SCANNER = new Scanner(System.in);
+    private static final RandomGenerator RANDOM = new Random();
 
     public static void evenGame(String userName) {
         int numberOfGames = 3;
@@ -16,11 +16,11 @@ public class Games {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         for (int i = 0; i < numberOfGames; i++) {
-            int number = random.nextInt(randomBound);
+            int number = RANDOM.nextInt(randomBound);
             System.out.println("Question: " + number);
             System.out.print("Your answer: ");
 
-            String userValue = scanner.nextLine();
+            String userValue = SCANNER.nextLine();
             String correctValue = number % 2 == 0 ? "yes" : "no";
 
             if (correctValue.equals(userValue)) {
@@ -29,7 +29,8 @@ public class Games {
                     System.out.println("Congratulations, " + userName + "!");
                 }
             } else {
-                System.out.println("'" + userValue + "' is wrong answer ;(. Correct answer was '" + correctValue + "'.");
+                System.out.println("'" + userValue + "' is wrong answer ;(. "
+                        + "Correct answer was '" + correctValue + "'.");
                 System.out.println("Let's try again, "  + userName + "!");
                 break;
             }

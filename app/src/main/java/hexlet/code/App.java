@@ -21,6 +21,8 @@ public class App {
         switch (choice) {
             case "1" -> userGreeting();
             case "2" -> evenGame(userGreeting());
+            default -> {
+            }
         }
     }
 }
