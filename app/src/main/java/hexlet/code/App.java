@@ -18,11 +18,9 @@ public class App {
         System.out.print("Your choice: ");
         String choice = scanner.nextLine();
 
-        if (!choice.equals("0")) {
-            switch (choice) {
-                case "1" -> userGreeting();
-                case "2" -> evenGame(userGreeting());
-            }
+        switch (choice) {
+            case "1" -> userGreeting();
+            case "2" -> evenGame(userGreeting());
         }
     }
 }
