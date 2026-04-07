@@ -1,13 +1,12 @@
 package hexlet.code;
 
-import java.util.Random;
 import java.util.Scanner;
 import java.util.random.RandomGenerator;
 
 public class Games {
 
     private static final Scanner SCANNER = new Scanner(System.in);
-    private static final RandomGenerator RANDOM = new Random();
+    private static final RandomGenerator RANDOM = RandomGenerator.getDefault();
 
     public static void evenGame(String userName) {
         int numberOfGames = 3;
