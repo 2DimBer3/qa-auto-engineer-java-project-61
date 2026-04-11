@@ -3,7 +3,8 @@ package hexlet.code;
 import java.util.Scanner;
 
 import static hexlet.code.Cli.userGreeting;
-import static hexlet.code.Games.evenGame;
+import static hexlet.code.games.CalcGame.calcGame;
+import static hexlet.code.games.EvenGame.evenGame;
 
 public class App {
     public static void main(String[] args) {
@@ -12,6 +13,7 @@ public class App {
                  Please enter the game number and press Enter.
                  1 - Greet
                  2 - Even
+                 3 - Calc
                  0 - Exit
                 """
         );
@@ -21,6 +23,7 @@ public class App {
         switch (choice) {
             case "1" -> userGreeting();
             case "2" -> evenGame(userGreeting());
+            case "3" -> calcGame(userGreeting());
             default -> {
             }
         }
