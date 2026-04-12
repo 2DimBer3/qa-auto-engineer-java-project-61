@@ -6,6 +6,7 @@ import static hexlet.code.Cli.userGreeting;
 import static hexlet.code.games.CalcGame.calcGame;
 import static hexlet.code.games.EvenGame.evenGame;
 import static hexlet.code.games.GcdGame.gcdGame;
+import static hexlet.code.games.ProgressionGame.progressionGame;
 
 public class App {
     public static void main(String[] args) {
@@ -16,6 +17,7 @@ public class App {
                  2 - Even
                  3 - Calc
                  4 - GCD
+                 5 - Progression
                  0 - Exit
                 """
         );
@@ -27,6 +29,7 @@ public class App {
             case "2" -> evenGame(userGreeting());
             case "3" -> calcGame(userGreeting());
             case "4" -> gcdGame(userGreeting());
+            case "5" -> progressionGame(userGreeting());
             default -> {
             }
         }
