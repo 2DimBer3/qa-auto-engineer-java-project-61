@@ -9,6 +9,9 @@ public class PrimeGame {
 
     private static final RandomGenerator RANDOM = RandomGenerator.getDefault();
     private static final int RANDOM_NUMBER_BOUND = 100;
+    private static final int START_DIVISOR = 3;
+    private static final int STEP = 2;
+    private static final int MIN_PRIME_NUMBER = 2;
 
     public static void primeGame(String userName) {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
@@ -28,11 +31,11 @@ public class PrimeGame {
     }
 
     private static boolean isPrime(int number) {
-        if ((number < 2) || (number % 2 == 0)) {
+        if ((number < MIN_PRIME_NUMBER) || (number % MIN_PRIME_NUMBER == 0)) {
             return false;
         }
 
-        for (int i = 3; i * i <= number; i += 2) {
+        for (int i = START_DIVISOR; i * i <= number; i += STEP) {
             if (number % i == 0) {
                 return false;
             }

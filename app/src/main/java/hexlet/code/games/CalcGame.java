@@ -9,6 +9,10 @@ public class CalcGame {
 
     private static final RandomGenerator RANDOM = RandomGenerator.getDefault();
     private static final int RANDOM_BOUND = 20;
+    private static final int OPERATORS_COUNT = 3;
+    private static final int OPERATOR_PLUS = 0;
+    private static final int OPERATOR_MINUS = 1;
+    private static final int OPERATOR_MULTIPLY = 2;
 
     public static void calcGame(String userName) {
         System.out.println("What is the result of the expression?");
@@ -36,11 +40,11 @@ public class CalcGame {
     }
 
     private static Character randomMathOperator() {
-        int operator = RANDOM.nextInt(3);
+        int operator = RANDOM.nextInt(OPERATORS_COUNT);
         return switch (operator) {
-            case 0 -> '+';
-            case 1 -> '-';
-            case 2 -> '*';
+            case OPERATOR_PLUS -> '+';
+            case OPERATOR_MINUS -> '-';
+            case OPERATOR_MULTIPLY -> '*';
             default -> throw new IllegalStateException("Unexpected value: " + operator);
         };
     }
