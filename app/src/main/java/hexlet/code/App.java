@@ -6,6 +6,7 @@ import static hexlet.code.Cli.userGreeting;
 import static hexlet.code.games.CalcGame.calcGame;
 import static hexlet.code.games.EvenGame.evenGame;
 import static hexlet.code.games.GcdGame.gcdGame;
+import static hexlet.code.games.PrimeGame.primeGame;
 import static hexlet.code.games.ProgressionGame.progressionGame;
 
 public class App {
@@ -18,6 +19,7 @@ public class App {
                  3 - Calc
                  4 - GCD
                  5 - Progression
+                 6 - Prime
                  0 - Exit
                 """
         );
@@ -30,6 +32,7 @@ public class App {
             case "3" -> calcGame(userGreeting());
             case "4" -> gcdGame(userGreeting());
             case "5" -> progressionGame(userGreeting());
+            case "6" -> primeGame(userGreeting());
             default -> {
             }
         }
