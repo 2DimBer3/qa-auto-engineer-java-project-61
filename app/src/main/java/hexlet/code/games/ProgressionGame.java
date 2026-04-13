@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import java.util.Arrays;
 import java.util.random.RandomGenerator;
 
 import static hexlet.code.Engine.ROUNDS_COUNT;
@@ -26,10 +25,10 @@ public class ProgressionGame {
             String[] progression = fillProgression(start, step, length);
 
             int hiddenIndex  = RANDOM.nextInt(progression.length);
-            String correctAnswer = progression[hiddenIndex ];
+            String correctAnswer = progression[hiddenIndex];
             progression[hiddenIndex ] = "..";
 
-            questions[i] = Arrays.toString(progression);
+            questions[i] = String.join(" ", progression);
             correctAnswers[i] = correctAnswer;
         }
 
