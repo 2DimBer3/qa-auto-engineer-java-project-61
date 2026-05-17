@@ -13,10 +13,9 @@ public class ProgressionGame {
     private static final int LENGTH_END = 10;
 
     public static void progressionGame(String userName) {
-        System.out.println("What number is missing in the progression?");
+        final String mainQuestion = "What number is missing in the progression?";
 
-        String[] questions = new String[ROUNDS_COUNT];
-        String[] correctAnswers = new String[ROUNDS_COUNT];
+        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
             int start = RANDOM.nextInt(RANDOM_NUMBER_BOUND);
@@ -26,14 +25,16 @@ public class ProgressionGame {
 
             int hiddenIndex  = RANDOM.nextInt(progression.length);
             String correctAnswer = progression[hiddenIndex];
-            progression[hiddenIndex ] = "..";
+            progression[hiddenIndex] = "..";
+            String question = String.join(" ", progression);
 
-            questions[i] = String.join(" ", progression);
-            correctAnswers[i] = correctAnswer;
+            questionsAndAnswers[i][0] = question;
+            questionsAndAnswers[i][1] = correctAnswer;
         }
 
-        runGame(questions, correctAnswers, userName);
+        runGame(mainQuestion, questionsAndAnswers, userName);
     }
+
     private static String[] fillProgression(int start, int step, int length) {
         String[] progression = new String[length];
         for (int i = 0; i < length; i++) {

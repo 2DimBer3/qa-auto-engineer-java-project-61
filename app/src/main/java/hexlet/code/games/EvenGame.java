@@ -11,20 +11,21 @@ public class EvenGame {
     private static final int RANDOM_BOUND = 20;
 
     public static void evenGame(String userName) {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        final String mainQuestion = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-        String[] questions = new String[ROUNDS_COUNT];
-        String[] correctAnswers = new String[ROUNDS_COUNT];
+        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
             int number = RANDOM.nextInt(RANDOM_BOUND);
+
+            String question = String.valueOf(number);
             String correctAnswer = number % 2 == 0 ? "yes" : "no";
 
-            questions[i] = String.valueOf(number);
-            correctAnswers[i] = correctAnswer;
+            questionsAndAnswers[i][0] = question;
+            questionsAndAnswers[i][1] = correctAnswer;
         }
 
-        runGame(questions, correctAnswers, userName);
+        runGame(mainQuestion, questionsAndAnswers, userName);
     }
 
 }

@@ -27,14 +27,14 @@ public class App {
         String choice = scanner.nextLine();
 
         switch (choice) {
+            case "0" -> { }
             case "1" -> userGreeting();
             case "2" -> evenGame(userGreeting());
             case "3" -> calcGame(userGreeting());
             case "4" -> gcdGame(userGreeting());
             case "5" -> progressionGame(userGreeting());
             case "6" -> primeGame(userGreeting());
-            default -> {
-            }
+            default -> System.out.println("Unknown user choice: " + choice);
         }
     }
 }

@@ -11,23 +11,24 @@ public class GcdGame {
     private static final int RANDOM_BOUND = 100;
 
     public static void gcdGame(String userName) {
-        System.out.println("Find the greatest common divisor of given numbers.");
+        final String mainQuestion = "Find the greatest common divisor of given numbers.";
 
-        String[] questions = new String[ROUNDS_COUNT];
-        String[] correctAnswers = new String[ROUNDS_COUNT];
+        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
             int x = RANDOM.nextInt(RANDOM_BOUND);
             int y = RANDOM.nextInt(RANDOM_BOUND);
 
-            int correctAnswer = gcdCalculation(x, y);
+            String question = x + " " + y;
+            String correctAnswer = String.valueOf(gcdCalculation(x, y));
 
-            questions[i] = x + " " + y;
-            correctAnswers[i] = String.valueOf(correctAnswer);
+            questionsAndAnswers[i][0] = question;
+            questionsAndAnswers[i][1] = correctAnswer;
         }
 
-        runGame(questions, correctAnswers, userName);
+        runGame(mainQuestion, questionsAndAnswers, userName);
     }
+
     public static int gcdCalculation(int a, int b) {
         return (b == 0) ? Math.abs(a) : gcdCalculation(b, a % b);
     }

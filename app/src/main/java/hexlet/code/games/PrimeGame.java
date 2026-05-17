@@ -9,33 +9,35 @@ public class PrimeGame {
 
     private static final RandomGenerator RANDOM = RandomGenerator.getDefault();
     private static final int RANDOM_NUMBER_BOUND = 100;
-    private static final int START_DIVISOR = 3;
-    private static final int STEP = 2;
-    private static final int MIN_PRIME_NUMBER = 2;
 
     public static void primeGame(String userName) {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        final String mainQuestion = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-        String[] questions = new String[ROUNDS_COUNT];
-        String[] correctAnswers = new String[ROUNDS_COUNT];
+        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
             int number = RANDOM.nextInt(RANDOM_NUMBER_BOUND);
+
+            String question = String.valueOf(number);
             String correctAnswer = isPrime(number) ? "yes" : "no";
 
-            questions[i] = String.valueOf(number);
-            correctAnswers[i] = correctAnswer;
+            questionsAndAnswers[i][0] = question;
+            questionsAndAnswers[i][1] = correctAnswer;
         }
 
-        runGame(questions, correctAnswers, userName);
+        runGame(mainQuestion, questionsAndAnswers, userName);
     }
 
     private static boolean isPrime(int number) {
-        if ((number < MIN_PRIME_NUMBER) || (number % MIN_PRIME_NUMBER == 0)) {
+        final int startDivisor = 3;
+        final int step = 2;
+        final int minPrimeNumber = 2;
+
+        if ((number < minPrimeNumber) || (number % minPrimeNumber == 0)) {
             return false;
         }
 
-        for (int i = START_DIVISOR; i * i <= number; i += STEP) {
+        for (int i = startDivisor; i * i <= number; i += step) {
             if (number % i == 0) {
                 return false;
             }

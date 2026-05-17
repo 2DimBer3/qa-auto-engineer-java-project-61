@@ -12,11 +12,6 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.10.0"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-}
-
 application {
     mainClass = "hexlet.code.App"
 }
@@ -26,10 +21,6 @@ sonar {
         property("sonar.projectKey", "2DimBer3_qa-auto-engineer-java-project-61")
         property("sonar.organization", "2dimber3")
     }
-}
-
-tasks.test {
-    useJUnitPlatform()
 }
 
 tasks.getByName("run", JavaExec::class) {
