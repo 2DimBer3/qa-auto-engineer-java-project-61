@@ -20,8 +20,9 @@ public class EvenGame {
     }
 
     private static String[] generateRoundData() {
-        final int MAX_NUMBER = 20;
-        int number = RANDOM.nextInt(MAX_NUMBER + 1);
+        final int maxNumber = 20;
+
+        int number = RANDOM.nextInt(maxNumber + 1);
 
         String question = String.valueOf(number);
         String correctAnswer = isEvenNumber(number) ? "yes" : "no";

@@ -20,8 +20,9 @@ public class PrimeGame {
     }
 
     private static String[] generateRoundData() {
-        final int MAX_NUMBER = 100;
-        int number = RANDOM.nextInt(MAX_NUMBER + 1);
+        final int maxNumber = 100;
+
+        int number = RANDOM.nextInt(maxNumber + 1);
 
         String question = String.valueOf(number);
         String correctAnswer = isPrime(number) ? "yes" : "no";

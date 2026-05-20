@@ -20,9 +20,10 @@ public class CalcGame {
     }
 
     private static String[] generateRoundData() {
-        final int MAX_NUMBER = 20;
-        int x = RANDOM.nextInt(MAX_NUMBER + 1);
-        int y = RANDOM.nextInt(MAX_NUMBER + 1);
+        final int maxNumber = 20;
+
+        int x = RANDOM.nextInt(maxNumber + 1);
+        int y = RANDOM.nextInt(maxNumber + 1);
         char operator = generateRandomMathOperator();
 
         String question = x + " " + operator + " " + y;

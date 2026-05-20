@@ -20,13 +20,13 @@ public class ProgressionGame {
     }
 
     private static String[] generateRoundData() {
-        final int MAX_NUMBER = 10;
-        final int MIN_LENGTH = 5;
-        final int MAX_LENGTH = 10;
+        final int maxNumber = 10;
+        final int minLength = 5;
+        final int maxLength = 10;
 
-        int start = RANDOM.nextInt(MAX_NUMBER + 1);
-        int step = RANDOM.nextInt(1, MAX_NUMBER + 1);
-        int length = RANDOM.nextInt(MIN_LENGTH, MAX_LENGTH + 1);
+        int start = RANDOM.nextInt(maxNumber + 1);
+        int step = RANDOM.nextInt(1, maxNumber + 1);
+        int length = RANDOM.nextInt(minLength, maxLength + 1);
         String[] progression = buildProgression(start, step, length);
 
         int hiddenIndex = RANDOM.nextInt(length);
