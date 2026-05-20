@@ -6,7 +6,7 @@ import static hexlet.code.Cli.userGreeting;
 import static hexlet.code.games.CalcGame.playCalcGame;
 import static hexlet.code.games.EvenGame.playEvenGame;
 import static hexlet.code.games.GcdGame.playGcdGame;
-import static hexlet.code.games.PrimeGame.primeGame;
+import static hexlet.code.games.PrimeGame.playPrimeGame;
 import static hexlet.code.games.ProgressionGame.progressionGame;
 
 public class App {
@@ -33,7 +33,7 @@ public class App {
             case "3" -> playCalcGame(userGreeting());
             case "4" -> playGcdGame(userGreeting());
             case "5" -> progressionGame(userGreeting());
-            case "6" -> primeGame(userGreeting());
+            case "6" -> playPrimeGame(userGreeting());
             default -> System.out.println("Unknown user choice: " + choice);
         }
     }

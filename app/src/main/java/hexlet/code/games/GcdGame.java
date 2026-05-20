@@ -21,8 +21,8 @@ public class GcdGame {
 
     private static String[] generateRoundData() {
         final int MAX_NUMBER = 100;
-        int x = RANDOM.nextInt(1, MAX_NUMBER + 1);
-        int y = RANDOM.nextInt(1, MAX_NUMBER + 1);
+        int x = RANDOM.nextInt(MAX_NUMBER + 1);
+        int y = RANDOM.nextInt(MAX_NUMBER + 1);
 
         String question = x + " " + y;
         String correctAnswer = String.valueOf(calculateGcd(x, y));

@@ -8,24 +8,26 @@ import static hexlet.code.Engine.runGame;
 public class PrimeGame {
 
     private static final RandomGenerator RANDOM = RandomGenerator.getDefault();
-    private static final int RANDOM_NUMBER_BOUND = 100;
 
-    public static void primeGame(String userName) {
+    public static void playPrimeGame(String userName) {
         final String mainQuestion = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-
-        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
+        final String[][] roundsData = new String[ROUNDS_COUNT][2];
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
-            int number = RANDOM.nextInt(RANDOM_NUMBER_BOUND);
-
-            String question = String.valueOf(number);
-            String correctAnswer = isPrime(number) ? "yes" : "no";
-
-            questionsAndAnswers[i][0] = question;
-            questionsAndAnswers[i][1] = correctAnswer;
+            roundsData[i] = generateRoundData();
         }
 
-        runGame(mainQuestion, questionsAndAnswers, userName);
+        runGame(mainQuestion, roundsData, userName);
+    }
+
+    private static String[] generateRoundData() {
+        final int MAX_NUMBER = 100;
+        int number = RANDOM.nextInt(MAX_NUMBER + 1);
+
+        String question = String.valueOf(number);
+        String correctAnswer = isPrime(number) ? "yes" : "no";
+
+        return new String[]{question, correctAnswer};
     }
 
     private static boolean isPrime(int number) {
