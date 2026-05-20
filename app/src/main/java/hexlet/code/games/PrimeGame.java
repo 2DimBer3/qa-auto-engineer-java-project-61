@@ -35,6 +35,10 @@ public class PrimeGame {
         final int step = 2;
         final int minPrimeNumber = 2;
 
+        if (number == minPrimeNumber) {
+            return true;
+        }
+
         if ((number < minPrimeNumber) || (number % minPrimeNumber == 0)) {
             return false;
         }
