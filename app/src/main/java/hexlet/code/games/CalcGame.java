@@ -6,37 +6,38 @@ import static hexlet.code.Engine.ROUNDS_COUNT;
 import static hexlet.code.Engine.runGame;
 
 public class CalcGame {
-
     private static final RandomGenerator RANDOM = RandomGenerator.getDefault();
-    private static final int RANDOM_BOUND = 20;
 
-    public static void calcGame(String userName) {
+    public static void playCalcGame(String userName) {
         final String mainQuestion = "What is the result of the expression?";
-
-        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
+        final String[][] roundsData = new String[ROUNDS_COUNT][2];
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
-            int x = RANDOM.nextInt(RANDOM_BOUND);
-            int y = RANDOM.nextInt(RANDOM_BOUND);
-            char operator = randomMathOperator();
-
-            String question = x + " " + operator + " " + y;
-            String correctAnswer = String.valueOf(calcByOperator(x, y, operator));
-
-            questionsAndAnswers[i][0] = question;
-            questionsAndAnswers[i][1] = correctAnswer;
+            roundsData[i] = generateRoundData();
         }
 
-        runGame(mainQuestion, questionsAndAnswers, userName);
+        runGame(mainQuestion, roundsData, userName);
     }
 
-    private static Character randomMathOperator() {
+    private static String[] generateRoundData() {
+        final int MAX_NUMBER = 20;
+        int x = RANDOM.nextInt(MAX_NUMBER + 1);
+        int y = RANDOM.nextInt(MAX_NUMBER + 1);
+        char operator = generateRandomMathOperator();
+
+        String question = x + " " + operator + " " + y;
+        String correctAnswer = String.valueOf(calcByOperator(x, y, operator));
+
+        return new String[]{question, correctAnswer};
+    }
+
+    private static char generateRandomMathOperator() {
         final char[] operators = {'+', '-', '*'};
         int indexOperator = RANDOM.nextInt(0, operators.length);
         return operators[indexOperator];
     }
 
-    private static int calcByOperator(int x, int y, Character operator) {
+    private static int calcByOperator(int x, int y, char operator) {
         return switch (operator) {
             case '+' -> x + y;
             case '-' -> x - y;
@@ -44,5 +45,4 @@ public class CalcGame {
             default -> throw new IllegalStateException("Unexpected operator: " + operator);
         };
     }
-
 }

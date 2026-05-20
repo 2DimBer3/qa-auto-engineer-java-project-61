@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 import static hexlet.code.Cli.userGreeting;
-import static hexlet.code.games.CalcGame.calcGame;
+import static hexlet.code.games.CalcGame.playCalcGame;
 import static hexlet.code.games.EvenGame.playEvenGame;
 import static hexlet.code.games.GcdGame.gcdGame;
 import static hexlet.code.games.PrimeGame.primeGame;
@@ -30,7 +30,7 @@ public class App {
             case "0" -> { }
             case "1" -> userGreeting();
             case "2" -> playEvenGame(userGreeting());
-            case "3" -> calcGame(userGreeting());
+            case "3" -> playCalcGame(userGreeting());
             case "4" -> gcdGame(userGreeting());
             case "5" -> progressionGame(userGreeting());
             case "6" -> primeGame(userGreeting());
