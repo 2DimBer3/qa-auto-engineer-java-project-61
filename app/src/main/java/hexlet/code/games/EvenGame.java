@@ -19,13 +19,17 @@ public class EvenGame {
             int number = RANDOM.nextInt(RANDOM_BOUND);
 
             String question = String.valueOf(number);
-            String correctAnswer = number % 2 == 0 ? "yes" : "no";
+            String correctAnswer = isEvenNumber(number) ? "yes" : "no";
 
             questionsAndAnswers[i][0] = question;
             questionsAndAnswers[i][1] = correctAnswer;
         }
 
         runGame(mainQuestion, questionsAndAnswers, userName);
+    }
+
+    private static boolean isEvenNumber(int number) {
+        return number % 2 == 0;
     }
 
 }
