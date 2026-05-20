@@ -6,7 +6,6 @@ import static hexlet.code.Engine.ROUNDS_COUNT;
 import static hexlet.code.Engine.runGame;
 
 public class PrimeGame {
-
     private static final RandomGenerator RANDOM = RandomGenerator.getDefault();
 
     public static void playPrimeGame(String userName) {
@@ -47,5 +46,4 @@ public class PrimeGame {
 
         return true;
     }
-
 }
